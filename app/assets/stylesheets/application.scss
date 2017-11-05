@@ -1,0 +1,46 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+
+$body-bg:#000000;
+$body-color:#fff;
+
+
+@font-face {
+  font-family: 'DobScript';
+  src: url('DobScript.eot');
+  src: url('DobScript.eot?#iefix') format('embedded-opentype'), url('DobScript.ttf') format('truetype'), url('DobScript.svg#dobscriptregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bgimg {
+  background-image: url(/images/bglogo.png);
+  background-size: 375px 525px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+$font-family-sans-serif:DobScript,"Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:DobScript,Georgia, "Times New Roman", Times, serif;
+
+
+@import "footer";
+@import "bootstrap";
+
+
+

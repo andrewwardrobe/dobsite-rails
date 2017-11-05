@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @kru_member.name
+%p
+  %b Image:
+  = @kru_member.image
+%p
+  %b Bio:
+  = @kru_member.bio
+
+= link_to 'Edit', edit_kru_member_path(@kru_member)
+\|
+= link_to 'Back', kru_members_path

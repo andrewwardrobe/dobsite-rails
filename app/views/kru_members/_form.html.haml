@@ -1,0 +1,19 @@
+= form_for @kru_member do |f|
+  - if @kru_member.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@kru_member.errors.count, "error")} prohibited this kru_member from being saved:"
+      %ul
+        - @kru_member.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :image
+    = f.text_field :image
+  .field
+    = f.label :bio
+    = f.text_field :bio
+  .actions
+    = f.submit 'Save'
