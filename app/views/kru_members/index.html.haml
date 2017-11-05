@@ -4,7 +4,8 @@
     .row
       - @kru_members.each do |kru_member|
         .card
-          %img{alt: 'Card image cap', src: "/images/crew/#{kru_member.image}", class: 'kruImage'}
+          %div{align: 'center'}
+            %img{alt: 'Card image cap', src: "/images/crew/#{kru_member.image}", class: 'kruImage'}
           %p.card-text
             %h5 #{kru_member.name}
             = kru_member.bio
