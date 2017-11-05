@@ -71,4 +71,9 @@ class KruMembersController < ApplicationController
     def kru_member_params
       params.require(:kru_member).permit(:name, :image, :bio)
     end
+
+  private def set_layout
+    super
+    @layout = 'album'
+  end
 end

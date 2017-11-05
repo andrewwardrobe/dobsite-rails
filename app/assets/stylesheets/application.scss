@@ -33,6 +33,7 @@ $body-color:#fff;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  min-height: 575px;
 }
 
 $font-family-sans-serif:DobScript,"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -40,6 +41,7 @@ $font-family-serif:DobScript,Georgia, "Times New Roman", Times, serif;
 
 
 @import "footer";
+@import "album";
 @import "bootstrap";
 
 
