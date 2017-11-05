@@ -1,0 +1,16 @@
+%nav.navbar.navbar-toggleable-md.navbar-inverse.bg-inverse
+  %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  %a#brand.navbar-brand{:href => "#"} Da Oostin Boyeez
+  #navbarNav.collapse.navbar-collapse
+    %ul.navbar-nav
+      %li.nav-item.active
+        %a.nav-link{:href => "/"}
+          Home
+          %span.sr-only (current)
+    %ul.nav.navbar-nav.navbar-toggler-right
+      %li.nav-item.dropdown{:w => ""}
+        %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+          Leek
+        .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+          %a.dropdown-item{:href => "/logout"} Logout
