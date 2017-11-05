@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "kru_members/show", type: :view do
+RSpec.describe 'kru_members/show', type: :view do
   before(:each) do
     @kru_member = assign(:kru_member, KruMember.create!(
-      :name => "Name",
-      :image => "Image",
-      :bio => "Bio"
+                                        name: 'Name',
+                                        image: 'Image',
+                                        bio: 'Bio'
     ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Image/)

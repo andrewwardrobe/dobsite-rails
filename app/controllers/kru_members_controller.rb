@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class KruMembersController < ApplicationController
-  before_action :set_kru_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_kru_member, only: %i[show edit update destroy]
 
   # GET /kru_members
   # GET /kru_members.json
@@ -9,8 +11,7 @@ class KruMembersController < ApplicationController
 
   # GET /kru_members/1
   # GET /kru_members/1.json
-  def show
-  end
+  def show; end
 
   # GET /kru_members/new
   def new
@@ -18,8 +19,7 @@ class KruMembersController < ApplicationController
   end
 
   # GET /kru_members/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /kru_members
   # POST /kru_members.json
@@ -62,15 +62,16 @@ class KruMembersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kru_member
-      @kru_member = KruMember.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def kru_member_params
-      params.require(:kru_member).permit(:name, :image, :bio)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_kru_member
+    @kru_member = KruMember.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def kru_member_params
+    params.require(:kru_member).permit(:name, :image, :bio)
+  end
 
   private def set_layout
     super

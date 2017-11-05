@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RailsAdmin.config do |config|
   config.model 'KruMember' do
     list do
@@ -7,13 +9,16 @@ RailsAdmin.config do |config|
     end
     edit do
       # configure :creator do
-        # default_value do
-        #   value.email
-        # end
+      # default_value do
+      #   value.email
       # end
-      configure :bio { label 'Biography' }
-      configure :created_at { default_value { Time.now } }
-      configure :updated_at { def value; Time.now; end }
+      # end
+      configure :bio do label 'Biography' end
+      configure :created_at do default_value { Time.now } end
+      configure :updated_at do
+        def value
+          Time.now
+                               end end
     end
   end
 end

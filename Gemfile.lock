@@ -89,6 +89,9 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
+    docker-api (1.33.6)
+      excon (>= 0.38.0)
+      json
     docker-compose (1.1.7)
       backticks (~> 1.0)
     easy_diff (1.0.0)
@@ -98,6 +101,7 @@ GEM
       mail (~> 2.6)
     erubi (1.7.0)
     erubis (2.7.0)
+    excon (0.59.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
@@ -150,6 +154,7 @@ GEM
       turbolinks
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    json (2.1.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -422,6 +427,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.6, >= 1.6.1)
   devise
+  docker-api
   docker-compose
   email_spec (~> 2.1)
   factory_bot_rails

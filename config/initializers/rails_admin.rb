@@ -1,5 +1,6 @@
-RailsAdmin.config do |config|
+# frozen_string_literal: true
 
+RailsAdmin.config do |config|
   config.audit_with :mongoid_audit
   ### Popular gems integration
 
@@ -8,7 +9,6 @@ RailsAdmin.config do |config|
     warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)
-
 
   config.actions do
     dashboard                     # mandatory
@@ -26,4 +26,3 @@ RailsAdmin.config do |config|
     history_show
   end
 end
-
