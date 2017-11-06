@@ -4,10 +4,12 @@ require 'rails_helper'
 
 RSpec.describe 'kru_members/show', type: :view do
   before(:each) do
+    user = User.create!(email: 'user@leek.com', password: 'Pass123!')
     @kru_member = assign(:kru_member, KruMember.create!(
                                         name: 'Name',
                                         image: 'Image',
-                                        bio: 'Bio'
+                                        bio: 'Bio',
+                                        updater: user
     ))
   end
 
