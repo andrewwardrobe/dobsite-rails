@@ -4,15 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'kru_members/edit', type: :view do
   before(:each) do
-    user = User.create!(email: 'user@leek.com', password: 'Pass123!')
-    @kru_member = assign(:kru_member,
-      KruMember.create!(name: 'MyString',
-        image: 'MyString',
-        bio: 'MyString',
-        updater: user
-    ))
-
-
+    @kru_member = assign(:kru_member, create(:kru_member))
   end
 
   it 'renders the edit kru_member form' do

@@ -6,8 +6,9 @@
         .card
           %div{align: 'center'}
             %img{alt: 'Card image cap', src: "/images/crew/#{kru_member.image}", class: 'kruImage'}
+
+          %h5 #{kru_member.name}
           %p.card-text
-            %h5 #{kru_member.name}
             = kru_member.bio
 
 %br

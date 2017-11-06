@@ -15,4 +15,6 @@ class KruMember
     track_update: true,
     modifier_field: :updater
   )
+
+  validates :name, :presence => true
 end

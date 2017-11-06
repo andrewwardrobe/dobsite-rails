@@ -29,23 +29,29 @@ RSpec.describe KruMembersController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # KruMember. As you add validations to KruMember, be sure to
   # adjust the attributes here as well.
+  login_user
+
+
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    build(:kru_member).attributes
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+        name: nil,
+        bio: 'Jimmy Tee',
+    }
   end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # KruMembersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+
 
   describe 'GET #index' do
     it 'returns a success response' do
       kru_member = KruMember.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: {}
       expect(response).to be_success
     end
   end
@@ -53,14 +59,14 @@ RSpec.describe KruMembersController, type: :controller do
   describe 'GET #show' do
     it 'returns a success response' do
       kru_member = KruMember.create! valid_attributes
-      get :show, params: { id: kru_member.to_param }, session: valid_session
+      get :show, params: { id: kru_member.to_param }
       expect(response).to be_success
     end
   end
 
   describe 'GET #new' do
     it 'returns a success response' do
-      get :new, params: {}, session: valid_session
+      get :new, params: {}
       expect(response).to be_success
     end
   end
@@ -68,7 +74,7 @@ RSpec.describe KruMembersController, type: :controller do
   describe 'GET #edit' do
     it 'returns a success response' do
       kru_member = KruMember.create! valid_attributes
-      get :edit, params: { id: kru_member.to_param }, session: valid_session
+      get :edit, params: { id: kru_member.to_param }
       expect(response).to be_success
     end
   end
@@ -77,19 +83,21 @@ RSpec.describe KruMembersController, type: :controller do
     context 'with valid params' do
       it 'creates a new KruMember' do
         expect do
-          post :create, params: { kru_member: valid_attributes }, session: valid_session
+          post :create, params: { kru_member: valid_attributes }
+          puts KruMember.count
         end.to change(KruMember, :count).by(1)
       end
 
       it 'redirects to the created kru_member' do
-        post :create, params: { kru_member: valid_attributes }, session: valid_session
+        post :create, params: { kru_member: valid_attributes }
         expect(response).to redirect_to(KruMember.last)
       end
     end
 
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: { kru_member: invalid_attributes }, session: valid_session
+        post :create, params: { kru_member: invalid_attributes }
+        puts response.body
         expect(response).to be_success
       end
     end
@@ -98,19 +106,19 @@ RSpec.describe KruMembersController, type: :controller do
   describe 'PUT #update' do
     context 'with valid params' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        build(:kru_member).attributes
       end
 
       it 'updates the requested kru_member' do
         kru_member = KruMember.create! valid_attributes
-        put :update, params: { id: kru_member.to_param, kru_member: new_attributes }, session: valid_session
+        put :update, params: { id: kru_member.to_param, kru_member: new_attributes }
         kru_member.reload
-        skip('Add assertions for updated state')
+        expect(kru_member.bio).to eq('Kru Bio')
       end
 
       it 'redirects to the kru_member' do
         kru_member = KruMember.create! valid_attributes
-        put :update, params: { id: kru_member.to_param, kru_member: valid_attributes }, session: valid_session
+        put :update, params: { id: kru_member.to_param, kru_member: valid_attributes }
         expect(response).to redirect_to(kru_member)
       end
     end
@@ -118,7 +126,7 @@ RSpec.describe KruMembersController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'edit' template)" do
         kru_member = KruMember.create! valid_attributes
-        put :update, params: { id: kru_member.to_param, kru_member: invalid_attributes }, session: valid_session
+        put :update, params: { id: kru_member.to_param, kru_member: invalid_attributes }
         expect(response).to be_success
       end
     end
@@ -128,13 +136,13 @@ RSpec.describe KruMembersController, type: :controller do
     it 'destroys the requested kru_member' do
       kru_member = KruMember.create! valid_attributes
       expect do
-        delete :destroy, params: { id: kru_member.to_param }, session: valid_session
+        delete :destroy, params: { id: kru_member.to_param }
       end.to change(KruMember, :count).by(-1)
     end
 
     it 'redirects to the kru_members list' do
       kru_member = KruMember.create! valid_attributes
-      delete :destroy, params: { id: kru_member.to_param }, session: valid_session
+      delete :destroy, params: { id: kru_member.to_param }
       expect(response).to redirect_to(kru_members_url)
     end
   end

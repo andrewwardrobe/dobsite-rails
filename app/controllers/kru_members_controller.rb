@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class KruMembersController < ApplicationController
+  before_action :authenticate_user!, only: %i[new edit update destroy]
   before_action :set_kru_member, only: %i[show edit update destroy]
+
 
   # GET /kru_members
   # GET /kru_members.json
@@ -25,12 +27,17 @@ class KruMembersController < ApplicationController
   # POST /kru_members.json
   def create
     @kru_member = KruMember.new(kru_member_params)
-
+    @kru_member.updater = current_user
     respond_to do |format|
       if @kru_member.save
         format.html { redirect_to @kru_member, notice: 'Kru member was successfully created.' }
         format.json { render :show, status: :created, location: @kru_member }
       else
+        puts "cannot save"
+        @kru_member.errors.each do |l|
+          puts l
+        end
+        puts @kru_member.to_yaml
         format.html { render :new }
         format.json { render json: @kru_member.errors, status: :unprocessable_entity }
       end

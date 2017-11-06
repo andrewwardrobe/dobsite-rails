@@ -4,11 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'kru_members/new', type: :view do
   before(:each) do
-    assign(:kru_member, KruMember.new(
-                          name: 'MyString',
-                          image: 'MyString',
-                          bio: 'MyString'
-    ))
+    @kru_member = assign(:kru_member, build(:kru_member))
   end
 
   it 'renders new kru_member form' do

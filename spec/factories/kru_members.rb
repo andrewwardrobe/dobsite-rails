@@ -2,8 +2,9 @@
 
 FactoryBot.define do
   factory :kru_member do
-    name 'MyString'
-    image 'MyString'
-    bio 'MyString'
+    name 'Kru Member'
+    image 'leek.png'
+    bio 'Kru Bio'
+    association :updater, factory: :user
   end
 end

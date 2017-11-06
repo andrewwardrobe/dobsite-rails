@@ -2,6 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe 'home/index.html.haml', type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe 'home/index', type: :view do
+  it 'renders' do
+    render
+    assert_select 'h1', text: 'Home#index'.to_s, count: 1
+  end
 end
