@@ -1,15 +1,18 @@
-%h1 Listing kru_members
-.album.text-muted
-  .container
-    .row
-      - @kru_members.each do |kru_member|
-        .card
-          %div{align: 'center'}
-            %img{alt: 'Card image cap', src: "/images/crew/#{kru_member.image}", class: 'kruImage'}
+%h1 Mango Kru
+%p
+%p
+  .album.text-muted
+    .container
+      .row
+        - @kru_members.each do |kru_member|
+          .card
+            %div{align: 'center'}
+              %img{alt: 'Card image cap', src: "/images/crew/#{kru_member.image}", class: 'kruImage'}
 
-          %h5 #{kru_member.name}
-          %p.card-text
-            = kru_member.bio
+            %h5
+              = link_to kru_member.name, kru_member
+            %p.card-text
+              = kru_member.bio
 
 %br
 
