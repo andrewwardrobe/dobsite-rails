@@ -50,7 +50,6 @@ class KruMembersController < ApplicationController
         format.html { redirect_to @kru_member, notice: 'Kru member was successfully created.' }
         format.json { render :show, status: :created, location: @kru_member }
       else
-        puts @kru_member.to_yaml
         format.html { render :new }
         format.json { render json: @kru_member.errors, status: :unprocessable_entity }
       end
