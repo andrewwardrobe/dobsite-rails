@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module KruMemberTestHelpers
   def kru_member_data
     [

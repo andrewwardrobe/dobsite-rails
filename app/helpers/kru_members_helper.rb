@@ -7,15 +7,14 @@ module KruMembersHelper
       if member
         member.update_attributes(d)
         member.updater = updater
-        member.updated_at = DateTime.now
-        member.save
+        member.updated_at = Time.current
       else
         member = KruMember.new(d)
-        member.updated_at = DateTime.now
-        member.created_at = DateTime.now
+        member.updated_at = Time.current
+        member.created_at = Time.current
         member.updater = updater
-        member.save
       end
+      member.save
     end
   end
 

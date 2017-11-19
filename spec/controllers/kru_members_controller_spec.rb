@@ -31,15 +31,14 @@ RSpec.describe KruMembersController, type: :controller do
   # adjust the attributes here as well.
   login_user
 
-
   let(:valid_attributes) do
     build(:kru_member).attributes
   end
 
   let(:invalid_attributes) do
     {
-        name: nil,
-        bio: 'Jimmy Tee',
+      name: nil,
+      bio: 'Jimmy Tee'
     }
   end
 
@@ -47,10 +46,9 @@ RSpec.describe KruMembersController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # KruMembersController. Be sure to keep this updated too.
 
-
   describe 'GET #index' do
     it 'returns a success response' do
-      kru_member = KruMember.create! valid_attributes
+      KruMember.create! valid_attributes
       get :index, params: {}
       expect(response).to be_success
     end

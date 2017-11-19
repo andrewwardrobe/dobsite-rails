@@ -6,8 +6,8 @@ class KruMember
   field :name, type: String
   field :image, type: String
   field :bio, type: String
-  field :created_at, type: DateTime
-  field :updated_at, type: DateTime
+  field :created_at, type: Time
+  field :updated_at, type: Time
 
   track_history(
     track_create: false,
@@ -16,5 +16,5 @@ class KruMember
     modifier_field: :updater
   )
 
-  validates :name, :presence => true
+  validates :name, presence: true
 end

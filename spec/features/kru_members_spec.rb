@@ -1,4 +1,6 @@
-describe "Mango Kru Page", type: :feature do
+# frozen_string_literal: true
+
+describe 'Mango Kru Page', type: :feature do
   before(:each) do
     user = create(:user)
     create_list(:kru_member, 6, updater: user)
@@ -19,11 +21,10 @@ describe "Mango Kru Page", type: :feature do
     expect(page).to have_selector '#kruCard', count: 6
   end
 
-
   it 'Allows for bulk upload of crew_members' do
     login
     visit kru_member_upload_path
-    attach_file("data", kru_member_file)
+    attach_file('data', kru_member_file)
     click_button 'Save changes'
     expect(page).to have_xpath "//img[contains(@src,'/images/crew/dlux_col.png')]"
   end

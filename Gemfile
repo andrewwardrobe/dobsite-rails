@@ -38,26 +38,24 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-
 if !ENV['RAILS_GROUPS'] || !ENV['RAIL_GROUPS'].match(/assets/)
   gem 'mongoid', '~> 6.2.0'
 end
 
-gem 'devise'
 gem 'cancancan', '~> 2.0'
 gem 'cancancan-mongoid'
+gem 'devise'
 gem 'font-awesome-sass'
 
 gem 'haml-rails', '~> 1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'autotest-rails'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'docker-compose'
   gem 'docker-api'
+  gem 'docker-compose'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.6'
-  gem 'autotest-rails'
 end
 
 group :development do
@@ -65,13 +63,11 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'pry'
   gem 'rubocop'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'pry'
 end
-
-
 
 group :test do
   gem 'capybara', '~> 2.14'

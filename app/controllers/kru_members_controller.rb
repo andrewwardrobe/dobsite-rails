@@ -4,7 +4,6 @@ class KruMembersController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit update destroy upload_page upload_action]
   before_action :set_kru_member, only: %i[show edit update destroy]
 
-
   # GET /kru_members
   # GET /kru_members.json
   def index
@@ -100,5 +99,4 @@ class KruMembersController < ApplicationController
     super
     @layout = 'album'
   end
-
 end

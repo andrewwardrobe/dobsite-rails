@@ -1,5 +1,7 @@
-describe "Menu", type: :feature do
-  it "Has Da Oostin Boyeez logo" do
+# frozen_string_literal: true
+
+describe 'Menu', type: :feature do
+  it 'Has Da Oostin Boyeez logo' do
     visit '/'
     expect(page.find('//*[@id="brand"]').text).to eq 'Da Oostin Boyeez'
   end

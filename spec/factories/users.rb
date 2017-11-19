@@ -10,5 +10,5 @@ end
 
 def random_string
   o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
-   (0...50).map { o[rand(o.length)] }.join
+  (0...50).map { o[rand(o.length)] }.join
 end

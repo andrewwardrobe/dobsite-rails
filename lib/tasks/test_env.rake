@@ -1,14 +1,15 @@
-desc "Load Test env"
+# frozen_string_literal: true
 
+desc 'Load Test env'
 
 namespace :test do
   task :start_containers do
     ids = []
     container_options = {
-        'Image' => 'mongo',
-        'HostConfig' => {
-            'PortBindings' => { '27017/tcp' => [{ 'HostPort' => '27017' }] }
-        }
+      'Image' => 'mongo',
+      'HostConfig' => {
+        'PortBindings' => { '27017/tcp' => [{ 'HostPort' => '27017' }] }
+      }
 
     }
 
@@ -16,11 +17,11 @@ namespace :test do
     container.start
 
     ids << container.id
-    File.open(Rails.root.join('tmp/containers.pid'),'w') { |file| file.write ids.to_yaml}
+    File.open(Rails.root.join('tmp', 'containers.pid'), 'w') { |file| file.write ids.to_yaml }
   end
 
   def stop_containers
-    ids = YAML.load_file(Rails.root.join('tmp/containers.pid'))
+    ids = YAML.load_file(Rails.root.join('tmp', 'containers.pid'))
     ids.each do |id|
       container = Docker::Container.get(id)
       container.stop
@@ -29,7 +30,7 @@ namespace :test do
   end
 
   task :stop_containers do
-   stop_containers
+    stop_containers
   end
 
   # Trick to make this alway run after pec
@@ -37,5 +38,4 @@ namespace :test do
     at_exit { stop_containers }
   end
   Rake::Task['spec'].enhance ['test:post_spec_cleanup', 'test:start_containers']
-
 end
