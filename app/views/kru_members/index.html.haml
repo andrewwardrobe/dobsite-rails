@@ -5,7 +5,7 @@
     .container
       .row
         - @kru_members.each do |kru_member|
-          .card
+          .card{id: 'kruCard'}
             %div{align: 'center'}
               %img{alt: 'Card image cap', src: "/images/crew/#{kru_member.image}", class: 'kruImage'}
 
