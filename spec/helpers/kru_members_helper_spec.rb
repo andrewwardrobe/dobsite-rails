@@ -13,4 +13,11 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe KruMembersHelper, type: :helper do
+  describe '.bulk_load' do
+    it "Should load a hash of mango kru memebers" do
+      data = kru_member_data
+      updater = create(:user)
+      expect { KruMembersHelper.bulk_load(data, updater) }.to change(KruMember, :count).by(data.size)
+    end
+  end
 end

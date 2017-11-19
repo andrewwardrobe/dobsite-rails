@@ -84,7 +84,6 @@ RSpec.describe KruMembersController, type: :controller do
       it 'creates a new KruMember' do
         expect do
           post :create, params: { kru_member: valid_attributes }
-          puts KruMember.count
         end.to change(KruMember, :count).by(1)
       end
 
@@ -97,7 +96,6 @@ RSpec.describe KruMembersController, type: :controller do
     context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: { kru_member: invalid_attributes }
-        puts response.body
         expect(response).to be_success
       end
     end
