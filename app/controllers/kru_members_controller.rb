@@ -29,7 +29,7 @@ class KruMembersController < ApplicationController
 
   # GET /kru_members/upload
   def upload_action
-    kru_members = KruMembersHelper.load_upload_data params[:data].read
+    kru_members = KruMembersHelper.load_upload_data upload_params[:data].read
     respond_to do |format|
       if KruMembersHelper.bulk_load kru_members, current_user
         format.html { redirect_to kru_members_url, notice: 'Kru members uploaded' }
