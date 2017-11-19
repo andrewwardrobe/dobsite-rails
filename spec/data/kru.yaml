@@ -1,6 +1,12 @@
 ---
+- name: MC Donalds
+  image: donalds_col.png
+  bio: Da Oostin Boyeez Founder Member
+
 - name: MC 2 Fresh
   image: 2fresh_col.png
+  bio: Da Oostin Boyeez Founder Member
+
 - name: DJ D-Lux
+  bio: Da Oostin Boyeez Founder Member
   image: dlux_col.png
-  bio: Leek

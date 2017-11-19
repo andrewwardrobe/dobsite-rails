@@ -1,9 +1,10 @@
 %p#notice= notice
 
 %h1= @kru_member.name
-%p
-  %img{src: "/images/crew/#{@kru_member.image}", class: 'kruBioImage'}
-%p
-  = @kru_member.bio
+.row
+  %div{class: 'kruImageBlock col-sm-4'}
+    %img{src: "/images/crew/#{@kru_member.image}", class: 'kruBioImage'}
+  %div{class: 'col-sm-8'}
+    = @kru_member.bio
 
 = link_to 'Back', kru_members_path
