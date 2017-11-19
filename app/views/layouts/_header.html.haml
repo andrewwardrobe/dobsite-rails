@@ -5,11 +5,13 @@
   #navbarNav.collapse.navbar-collapse
     %ul.navbar-nav
       %li.nav-item.active
-        %a.nav-link{:href => "/"}
+        %a.nav-link{:href => '/'}
           Home
           %span.sr-only (current)
+        %a.nav-link{ :href => '/mango_kru' }
+          Mango Kru
     %ul.nav.navbar-nav.navbar-toggler-right
-      %li.nav-item.dropdown{:w => ""}
+      %li.nav-item.dropdown{:w => ''}
         %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
           Leek
         .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
