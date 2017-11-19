@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class KruMembersController < ApplicationController
-  before_action :authenticate_user!, only: %i[new edit update destroy]
+  before_action :authenticate_user!, only: %i[new edit update destroy upload_page upload_action]
   before_action :set_kru_member, only: %i[show edit update destroy]
 
 
@@ -22,6 +22,23 @@ class KruMembersController < ApplicationController
 
   # GET /kru_members/1/edit
   def edit; end
+
+  # GET /kru_members/upload
+  def upload_page
+    render :upload
+  end
+
+  # GET /kru_members/upload
+  def upload_action
+    kru_members = KruMembersHelper.load_upload_data params[:data].read
+    respond_to do |format|
+      if KruMembersHelper.bulk_load kru_members, current_user
+        format.html { redirect_to kru_members_url, notice: 'Kru members uploaded' }
+      else
+        format.html { redirect_to kru_member_upload_url, notice: 'Kru member upload failed' }
+      end
+    end
+  end
 
   # POST /kru_members
   # POST /kru_members.json
@@ -76,8 +93,13 @@ class KruMembersController < ApplicationController
     params.require(:kru_member).permit(:name, :image, :bio)
   end
 
+  def upload_params
+    params
+  end
+
   private def set_layout
     super
     @layout = 'album'
   end
+
 end

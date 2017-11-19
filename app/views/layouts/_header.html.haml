@@ -16,5 +16,5 @@
         %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
           Leek
         .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-          %a.dropdown-item{:href => "/admin"} Admin
-          %a.dropdown-item{:href => "/logout"} Logout
+          %a.dropdown-item{:href => rails_admin_path } Admin
+          = link_to 'Logout', destroy_user_session_path, { class: 'dropdown-item', method: :delete }

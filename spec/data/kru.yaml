@@ -1,0 +1,6 @@
+---
+- name: MC 2 Fresh
+  image: 2fresh_col.png
+- name: DJ D-Lux
+  image: dlux_col.png
+  bio: Leek
