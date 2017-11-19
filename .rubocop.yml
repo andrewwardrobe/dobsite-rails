@@ -1,0 +1,21 @@
+---
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - config/initializers/*.rb
+Rails:
+  Enabled: true
+
+
+Metrics/LineLength:
+  Max: 140
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'

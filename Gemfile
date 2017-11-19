@@ -38,12 +38,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
+
 
 if !ENV['RAILS_GROUPS'] || !ENV['RAIL_GROUPS'].match(/assets/)
   gem 'mongoid', '~> 6.2.0'
 end
 
+gem 'devise'
+gem 'cancancan', '~> 2.0'
+gem 'cancancan-mongoid'
 gem 'font-awesome-sass'
 
 gem 'haml-rails', '~> 1.0'
@@ -67,6 +70,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
 end
+
+
 
 group :test do
   gem 'capybara', '~> 2.14'
