@@ -30,6 +30,13 @@ describe 'Mango Kru Page', type: :feature do
       expect(page).to have_xpath "//img[contains(@src,'/images/crew/dlux_col.png')]"
     end
 
+
+    it 'shows the import members link ' do
+      login ['kru_manager']
+      visit kru_members_path
+      expect(page).to have_link 'Import Kru members', :href => kru_member_upload_path
+    end
+
     it 'shows the new kru member link ' do
       login ['kru_manager']
       visit kru_members_path

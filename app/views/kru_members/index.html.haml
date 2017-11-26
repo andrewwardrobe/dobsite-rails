@@ -17,3 +17,5 @@
 %br
 - if can? :new, KruMember
   = link_to 'New Kru member', '/admin/kru_member/new'
+- if can? :import, KruMember
+  = link_to 'Import Kru members', kru_member_upload_path
