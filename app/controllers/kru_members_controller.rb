@@ -43,8 +43,7 @@ class KruMembersController < ApplicationController
   # POST /kru_members
   # POST /kru_members.json
   def create
-    @kru_member = KruMember.new(kru_member_params)
-    @kru_member.updater = current_user
+    @kru_member = KruMember.new(kru_member_update_details(kru_member_params))
     respond_to do |format|
       if @kru_member.save
         format.html { redirect_to @kru_member, notice: 'Kru member was successfully created.' }
@@ -60,7 +59,7 @@ class KruMembersController < ApplicationController
   # PATCH/PUT /kru_members/1.json
   def update
     respond_to do |format|
-      if @kru_member.update(kru_member_params)
+      if @kru_member.update(kru_member_update_details(kru_member_params))
         format.html { redirect_to @kru_member, notice: 'Kru member was successfully updated.' }
         format.json { render :show, status: :ok, location: @kru_member }
       else
@@ -81,6 +80,12 @@ class KruMembersController < ApplicationController
   end
 
   private
+  def kru_member_update_details(params)
+    params[:updater]     = current_user
+    params[:created_at] = Time.now
+    params[:updated_at] = Time.now
+    params
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_kru_member

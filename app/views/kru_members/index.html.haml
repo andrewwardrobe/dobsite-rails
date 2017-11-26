@@ -15,5 +15,5 @@
               = kru_member.bio
 
 %br
-
-= link_to 'New Kru member', new_kru_member_path
+- if can? :new, KruMember
+  = link_to 'New Kru member', '/admin/kru_member/new'

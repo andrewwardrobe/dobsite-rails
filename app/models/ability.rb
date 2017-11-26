@@ -27,9 +27,21 @@ class Ability
     can :import, KruMember
   end
 
+  def kru_editor
+    admin
+    can :edit, KruMember
+    can :new, KruMember
+  end
+
+  def kru_manager
+    admin
+    kru_editor
+    kru_bulk_update
+  end
+
   def superadmin
     admin
-    kru_bulk_update
+    kru_manager
     can :manage, :all
   end
 
