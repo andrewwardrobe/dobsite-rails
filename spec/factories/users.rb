@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :user do
     email { random_string + '@example.com' }
     password 'Pass123!'
+    roles []
     admin false
   end
 end

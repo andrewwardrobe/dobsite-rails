@@ -24,6 +24,7 @@ class KruMembersController < ApplicationController
 
   # GET /kru_members/upload
   def upload_page
+    authorize! :import, KruMember
     render :upload
   end
 

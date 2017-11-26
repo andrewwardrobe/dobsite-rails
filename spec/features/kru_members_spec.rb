@@ -22,7 +22,7 @@ describe 'Mango Kru Page', type: :feature do
   end
 
   it 'Allows for bulk upload of crew_members' do
-    login
+    login ['kru_bulk_update']
     visit kru_member_upload_path
     attach_file('data', kru_member_file)
     click_button 'Save changes'

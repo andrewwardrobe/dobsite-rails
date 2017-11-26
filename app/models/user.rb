@@ -27,6 +27,7 @@ class User
 
   ## Admin
   field :admin,              type: Boolean
+  field :roles,              type: Array,   default: ['admin']
 
   ## Confirmable
   # field :confirmation_token,   type: String
@@ -38,4 +39,9 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+  def has_role?(role)
+    roles.include? role
+  end
+
 end
